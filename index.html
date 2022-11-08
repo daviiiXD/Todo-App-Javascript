@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Todo List App</title>
+</head>
+<body>
+     <header>
+          <h3> <!--User Name--> Todo list </h3>
+     </header>
+     <main>
+          <section>
+               <header>
+                    <h1>Your todos</h1>
+                    <input id="add-input" type="text" placeholder="Type here what needs to be done!"><button id="add-btn">Add</button>
+               </header>
+               <main id="todos">
+
+               </main>
+          </section>
+     </main>
+     <script src="js/js.cookie.min.js"></script>
+     <script>
+          let todos = [];
+          let addBtn = document.querySelector('#add-btn');
+          let input = document.querySelector('#add-input');
+          let todoList = document.querySelector('#todos')
+          
+          function listTodos() {
+               todoList.innerHTML += `<div>${todos[todos.length -1]} | <input type="checkbox"></div><br>`;
+          };
+          function addTodos() {
+               todos.push(input.value);
+               listTodos();
+          };
+
+          addBtn.addEventListener('click', addTodos);
+     </script>
+</body>
+</html>
