@@ -27,13 +27,9 @@
           let addBtn = document.querySelector('#add-btn');
           let input = document.querySelector('#add-input');
           let todoList = document.querySelector('#todos')
-          
-          function listTodos() {
-               todoList.innerHTML += `<div>${todos[todos.length -1]} | <input type="checkbox"></div><br>`;
-          };
+
           function addTodos() {
                todos.push(input.value);
-               listTodos();
           };
 
           addBtn.addEventListener('click', addTodos);
