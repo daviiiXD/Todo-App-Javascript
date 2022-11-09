@@ -8,7 +8,7 @@
 </head>
 <body>
      <header>
-          <h3> <!--User Name--> Todo list </h3>
+          <h3> <!--User Name--> todo list </h3>
      </header>
      <main>
           <section>
@@ -16,23 +16,12 @@
                     <h1>Your todos</h1>
                     <input id="add-input" type="text" placeholder="Type here what needs to be done!"><button id="add-btn">Add</button>
                </header>
-               <main id="todos">
+               <ul id="todos">
 
-               </main>
+               </ul>
           </section>
      </main>
      <script src="js/js.cookie.min.js"></script>
-     <script>
-          let todos = [];
-          let addBtn = document.querySelector('#add-btn');
-          let input = document.querySelector('#add-input');
-          let todoList = document.querySelector('#todos')
-
-          function addTodos() {
-               todos.push(input.value);
-          };
-
-          addBtn.addEventListener('click', addTodos);
-     </script>
+     <script src="js/main.js"></script>
 </body>
 </html>
