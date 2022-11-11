@@ -9,19 +9,18 @@ function addTodos() {
      todos.push(input.value);
 };
 
-let i = 0;
-function addItem() {
-     if(input.value) {
+function addItem(todo = input.value) {
+     if(todo) {
+          let i = 0;
           todos.push([input.value, false]);
           list.innerHTML += `<li id="${i}">${input.value}</li>`;
           i++;
           console.log(i)
           input.value = '';
-          setCookies();
      };
 };
 function setCookies() {
-     Cookies.set('todos', todos, {
+     Cookies.set('todos', JSON.stringify(todos), {
           expires: 30,
      });
 };
@@ -42,8 +41,18 @@ window.addEventListener('keydown', (e) => {
      };
 });
 
-windows.addEventListener('load', ()=>{
-
+window.addEventListener('load', ()=>{
+     if (Cookies.get('todos')) {
+          todos = JSON.parse(Cookies.get('todos'));
+          console.log(todos);
+          for(let i = 0; i < todos.length; i++) {
+               console.log(todos[i])
+               list.innerHTML += `<li id="${i}">${todos[i][0]}</li>`
+               if(todos[i][1] == true) {
+                    document.querySelector("#" + i).style.color = 'red';
+               };
+          };
+     };
 });
 
 // on reload
